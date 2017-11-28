@@ -1,11 +1,20 @@
 #!/bin/bash
 
+echo "Config must run first (see ./config/run.sh)"
+echo "-------------------------------------------"
 echo "Getting environment variables from /.env"
 echo "Available params: "
-echo "\t--dev -> development. Default (production)"
-echo "\t--debug -> execute docker-compose not in daemon, so you can see logs"
+echo "   --dev -> development. Default (production)"
+echo "   --debug -> execute docker-compose not in daemon, so you can see logs"
 
+password = "43694524"
+export set CONFIG_SERVICE_PASSWORD=$password
+export set NOTIFICATION_SERVICE_PASSWORD=$password
+export set STATISTICS_SERVICE_PASSWORD=$password
+export set ACCOUNT_SERVICE_PASSWORD=$password
+export set MONGODB_PASSWORD=$password
 
+read -p "When Config is ready, press any key to continue... " -n1 -s
 
 dev=false
 debug=false
